@@ -1,0 +1,19 @@
+# Freelance Job Alerts
+
+Freelance Job Alerts is a curated discovery platform for transparent freelance, contract, and remote work opportunities, with an initial focus on U.S. professionals.
+
+## Start Here
+
+- [Home](https://freelancejobalerts.com/): Overview of the platform and latest opportunities.
+- [Browse Jobs](https://freelancejobalerts.com/jobs): Search and filter current freelance and remote roles.
+- [Categories](https://freelancejobalerts.com/categories): Explore roles by writing, design, development, marketing, video, and support.
+- [About](https://freelancejobalerts.com/about): How listings are curated and presented.
+- [Newsletter](https://freelancejobalerts.com/newsletter): Subscribe to the weekly job shortlist.
+
+## Editorial Principles
+
+Listings should show the role, employer, work type, location or time-zone expectation, compensation when available, verification date, and original application source. Expired or questionable listings should be removed or reviewed.
+
+## Audience
+
+The platform serves independent professionals, freelancers, contractors, creators, and remote-first teams.
