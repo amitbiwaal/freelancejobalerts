@@ -12,10 +12,20 @@ const jobs=[
  {id:6,title:'React Developer for Product Sprint',company:'Copperline',type:'Freelance',location:'Remote · Europe',pay:'€45–65 / hour',skill:'Development',fresh:'2d ago',tag:'Verified',description:'Help a product team ship a focused React feature sprint.',details:['React and TypeScript','Two-week sprint','Strong product sense']}
 ];
 const skills=['All roles','Writing','Design','Development','Marketing','Video','Support'];
+const jobPostingSchemas = [];
 const pages=['home','jobs','categories','about','newsletter'];
 function App(){
  const [page,setPage]=useState('home'); const [query,setQuery]=useState(''); const [skill,setSkill]=useState('All roles'); const [email,setEmail]=useState(''); const [subscribed,setSubscribed]=useState(false); const [selected,setSelected]=useState(null);
- React.useEffect(()=>{ const meta={home:['Freelance Job Alerts | Curated Freelance & Remote Work','Curated freelance and remote job alerts for independent professionals.','/'],jobs:['Freelance & Remote Jobs | Freelance Job Alerts','Browse curated freelance, contract, and remote job opportunities with clear pay and location details.','/jobs'],categories:['Freelance Job Categories | Writing, Design, Development & More','Explore freelance and remote job categories for independent professionals.','/categories'],about:['About Freelance Job Alerts | Better Job Search','Learn how Freelance Job Alerts curates clear, useful freelance and remote work opportunities.','/about'],newsletter:['Weekly Freelance Job Alerts Newsletter','Get a concise weekly shortlist of freelance and remote opportunities.','/newsletter']}[page] || null; if(meta){applySeo({title:meta[0],description:meta[1],path:meta[2]});injectSchemas([organizationSchema,websiteSchema]);} },[page]);
+ React.useEffect(()=>{
+  const meta={
+   home:['Freelance Job Alerts | Curated Freelance & Remote Work','Curated freelance and remote job alerts for independent professionals.','/'],
+   jobs:['Freelance & Remote Jobs | Freelance Job Alerts','Browse curated freelance, contract, and remote job opportunities with clear pay and location details.','/jobs'],
+   categories:['Freelance Job Categories | Writing, Design, Development & More','Explore freelance and remote job categories for independent professionals.','/categories'],
+   about:['About Freelance Job Alerts | Better Job Search','Learn how Freelance Job Alerts curates clear, useful freelance and remote work opportunities.','/about'],
+   newsletter:['Weekly Freelance Job Alerts Newsletter','Get a concise weekly shortlist of freelance and remote opportunities.','/newsletter']
+  }[page] || null;
+  if(meta){ applySeo({title:meta[0],description:meta[1],path:meta[2]}); injectSchemas([organizationSchema,websiteSchema]); }
+ },[page]);
  const filtered=useMemo(()=>jobs.filter(j=>(skill==='All roles'||j.skill===skill)&&[j.title,j.company,j.location,j.skill].join(' ').toLowerCase().includes(query.toLowerCase())),[query,skill]);
  const go=p=>{setPage(p);setSelected(null);window.scrollTo({top:0,behavior:'smooth'})};
  const JobCard=({job})=><article className="job-card" onClick={()=>setSelected(job)}><div className="job-top"><span className="job-tag">{job.tag}</span><span className="job-time">{job.fresh}</span></div><h3>{job.title}</h3><p className="company">{job.company}</p><div className="job-meta"><span>{job.location}</span><span>{job.type}</span></div><div className="job-bottom"><strong>{job.pay}</strong><button aria-label={'View '+job.title}>↗</button></div></article>;
